@@ -9,27 +9,27 @@ export const App = () => {
   const [contacts, setContacts] =  useState(initialContacts);
   const [filter, setFilter] = useState('');
 
-  useEffect(() => {
-    const saveContacts = localStorage.getItem('save-contacts');
-    if (saveContacts !== null){
-      try {
-       setContacts(JSON.parse(saveContacts))
-      } catch (error) {
-        console.error('Ошибка при чтении контактов из localStorage:', error);
-      }
+useEffect(() => {
+  const saveContacts = localStorage.getItem('save-contacts');
+  if (saveContacts !== null){
+    try {
+      setContacts(JSON.parse(saveContacts))
+    } catch (error) {
+      console.error('Ошибка при чтении контактов из localStorage:', error);
     }
-  }, [])
+  }
+}, [])
 
-  useEffect(() => {
-    if(initialContacts !== contacts) {
-      
-      try{
-        localStorage.setItem('save-contacts', JSON.stringify(contacts))
-      }catch(error) {
-        console.error("OPPPS! Помилка при збереженні данних в LocalStorage", error)
-      }
+useEffect(() => {
+  if(initialContacts !== contacts) {
+    
+    try{
+      localStorage.setItem('save-contacts', JSON.stringify(contacts))
+    }catch(error) {
+      console.error("OPPPS! Помилка при збереженні данних в LocalStorage", error)
     }
-  }, [contacts])
+  }
+}, [contacts])
 
   // Contacts
   const addContacts= (addNewContacts) => {
