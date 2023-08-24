@@ -5,7 +5,6 @@ import { FilterContacts } from './FilterContacts/filterContacts'
 import { BookContacts } from "./BookContacts/bookContacts";
 import initialContacts from './contacts.json'
 
-
 export const App = () => {
   const [contacts, setContacts] =  useState(initialContacts);
   const [filter, setFilter] = useState('');
